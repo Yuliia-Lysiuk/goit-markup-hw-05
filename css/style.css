@@ -566,13 +566,156 @@ footer .logo {
   font-size: 18px;
   line-height: 1.56;
   color: var(--main-bg-color);
-  opacity: 0;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 }
 
 .link-portfolio:hover .portfolio-text,
 .link-portfolio:focus .portfolio-text {
-  opacity: 1;
   transform: translateY(0);
+}
+.btn-red {
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  width: 400px;
+  height: 150px;
+  color: #188ae8;
+  background-color: #e86b18;
+  font-size: 36px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  margin: 50px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.btn-red::after {
+  content: '';
+
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+
+  background-image: url(../images/icon/antenna.svg);
+  margin-left: 15px;
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-red::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 249px;
+  transform: translateY(calc(-50% - 100px));
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+
+  background-image: url(../images/icon/astronaut.svg);
+
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-red:hover {
+  background-color: #e7dcdc;
+  color: #000000;
+}
+.btn-red:hover::after {
+  transform: translateY(100px);
+}
+.btn-red:hover::before {
+  transform: translateY(-50%);
+}
+.menu-button {
+  display: flex;
+  margin: 50px;
+}
+.link-btn {
+  position: relative;
+  color: red;
+  font-size: 20px;
+  overflow: hidden;
+  padding: 10px;
+}
+.link-btn::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: darkred;
+  right: 0;
+  top: 0;
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0);
+}
+.link-btn:not(:last-child) {
+  margin-right: 80px;
+}
+.link-btn-list {
+  background-color: rgba(0, 0, 0, 0.295);
+}
+.link-btn:hover::before {
+  transform: scale(1);
+}
+.menu-link-btn {
+  transform: translateX(-105px);
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(185, 233, 122);
+}
+.link-btn:hover .menu-link-btn {
+  transform: translateX(0);
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+.scene {
+  width: 360px;
+  height: 300px;
+  border: 1px solid #ccc;
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 26px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: rgb(202, 195, 195);
+  background-image: url(../images/portfolio/img.jpg);
+  background-repeat: no-repeat;
+  object-fit: contain;
+}
+
+.card__face--back {
+  background: blue;
+  transform: rotateY(180deg);
 }
